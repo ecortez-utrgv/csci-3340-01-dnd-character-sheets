@@ -6,7 +6,7 @@ When('I click on the {string} button') do |string|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should be redirected to a form to input my character's information") do
+Then('I should be redirected to a form to input my character\'s information') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -59,7 +59,7 @@ Given('I am viewing a character sheet') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should see a confirmation prompt asking if I'm sure") do
+Then('I should see a confirmation prompt asking if I\'m sure') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -91,7 +91,7 @@ Then('the total should equal the sum of the rolled dice values and any modifiers
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When("I enter a dice expression that uses the character's stats") do
+When('I enter a dice expression that uses the character\'s stats') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -131,7 +131,7 @@ Then('I should be redirected to the edit page for that character sheet') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should see a form pre-filled with that character sheet's information") do
+Then('I should see a form pre-filled with that character sheet\'s information') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -171,19 +171,11 @@ Then('I should be redirected to the login page') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then('I should be redirected to my character sheets page') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Then('I should see a list of all my character sheets') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given('I am on my character sheets page') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When('I click on one of those character sheets') do
+When('I click on a character sheets') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
