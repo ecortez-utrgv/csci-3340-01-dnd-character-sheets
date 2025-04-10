@@ -1,0 +1,7 @@
+<%= render @character_sheet %>
+
+<div class="flex flex-wrap items-center gap mbs-6" style="--row-gap: .5rem">
+  <%= link_to "Edit this character sheet", edit_character_sheet_path(@character_sheet), class: "btn" %>
+  <%= link_to "Back to character sheets", character_sheets_path, class: "btn" %>
+  <%= button_to "Destroy this character sheet", @character_sheet, method: :delete, class: "btn" %>
+</div>

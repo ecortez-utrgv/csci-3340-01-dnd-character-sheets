@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_26_130157) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_10_195925) do
+  create_table "character_sheets", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.integer "experiencePoints"
+    t.boolean "inspiration"
+    t.integer "hitPoints"
+    t.integer "temporaryHitPoints"
+    t.integer "hitPointMaximum"
+    t.integer "hitDiceSpent"
+    t.integer "hitDiceMaximum"
+    t.integer "deathSaveSuccesses"
+    t.integer "deathSaveFailures"
+    t.integer "strengthScore"
+    t.integer "dexterityScore"
+    t.integer "constitutionScore"
+    t.integer "intelligenceScore"
+    t.integer "wisdomScore"
+    t.integer "charismaScore"
+    t.boolean "strengthSavingThrowProficiency"
+    t.boolean "dexteritySavingThrowProficiency"
+    t.boolean "constitutionSavingThrowProficiency"
+    t.boolean "intelligenceSavingThrowProficiency"
+    t.boolean "wisdomSavingThrowProficiency"
+    t.boolean "charismaSavingThrowProficiency"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"

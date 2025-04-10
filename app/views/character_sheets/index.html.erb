@@ -1,0 +1,15 @@
+<% content_for :title, "Character sheets" %>
+
+<div class="flex items-center justify-between mbe-4">
+  <h1 class="font-bold text-4xl">Character sheets</h1>
+  <%= link_to "New character sheet", new_character_sheet_path, class: "btn btn--primary" %>
+</div>
+
+<div id="character_sheets" class="flex flex-col" style="gap: 2rem;">
+  <% @character_sheets.each do |character_sheet| %>
+    <div class="flex flex-col items-start gap">
+      <%= render character_sheet %>
+      <%= link_to "Show this character sheet", character_sheet, class: "btn" %>
+    </div>
+  <% end %>
+</div>
