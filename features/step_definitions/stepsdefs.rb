@@ -1,13 +1,13 @@
 Given('I am on the homepage') do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit root_path
 end
 
-When('I click on the {string} button') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+When('I click on the {string} button') do |button|
+  click_on button
 end
 
 Then('I should be redirected to a form to input my character\'s information') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to_have current_path(new_character_path)
 end
 
 Then('I should see six randomly generated stats to use') do
@@ -27,7 +27,7 @@ Then('I should be able to see that new character sheet') do
 end
 
 Given('I am on the login page,') do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit user_sign_up_path
 end
 
 When('I fill in my username, email and password') do
@@ -172,7 +172,7 @@ Then('I should be redirected to the login page') do
 end
 
 Then('I should see a list of all my character sheets') do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end
 
 When('I click on a character sheets') do
