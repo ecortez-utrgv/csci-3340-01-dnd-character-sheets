@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "character_sheets#index"
   get "users/sign_up", to: "user#new", as: :user_sign_up_page
   get "users/sign_up", to: "user#create", as: :user_sign_up
 end
