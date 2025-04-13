@@ -8,6 +8,10 @@
     <p class="leading-none"><%= character_sheet.level %></p>
   </div>
   <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Proficiency Bonus:</h4>
+    <p class="leading-none"><%= 2+(character_sheet.level.to_i / 4) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
     <h4 class="font-medium leading-none">Experiencepoints:</h4>
     <p class="leading-none"><%= character_sheet.experiencePoints %></p>
   </div>
@@ -16,79 +20,119 @@
     <p class="leading-none"><%= character_sheet.inspiration %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Hitpoints:</h4>
-    <p class="leading-none"><%= character_sheet.hitPoints %></p>
+    <h4 class="font-medium leading-none">Hit Points:</h4>
+    <p class="leading-none"><%= character_sheet.hitPoints %>/<%= character_sheet.hitPointMaximum %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Temporaryhitpoints:</h4>
+    <h4 class="font-medium leading-none">Temporary Hit Points:</h4>
     <p class="leading-none"><%= character_sheet.temporaryHitPoints %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Hitpointmaximum:</h4>
-    <p class="leading-none"><%= character_sheet.hitPointMaximum %></p>
+    <h4 class="font-medium leading-none">Hit Dice Spent:</h4>
+    <p class="leading-none"><%= character_sheet.hitDiceSpent %>/<%= character_sheet.hitDiceMaximum %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Hitdicespent:</h4>
-    <p class="leading-none"><%= character_sheet.hitDiceSpent %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Hitdicemaximum:</h4>
-    <p class="leading-none"><%= character_sheet.hitDiceMaximum %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Deathsavesuccesses:</h4>
+    <h4 class="font-medium leading-none">Death Save Successes:</h4>
     <p class="leading-none"><%= character_sheet.deathSaveSuccesses %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Deathsavefailures:</h4>
+    <h4 class="font-medium leading-none">Death Save Failures:</h4>
     <p class="leading-none"><%= character_sheet.deathSaveFailures %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Strengthscore:</h4>
+    <h4 class="font-medium leading-none">Strength Score:</h4>
     <p class="leading-none"><%= character_sheet.strengthScore %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Dexterityscore:</h4>
-    <p class="leading-none"><%= character_sheet.dexterityScore %></p>
+    <h4 class="font-medium leading-none">Strength Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.strengthScore.to_i - 10)/2 %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Constitutionscore:</h4>
-    <p class="leading-none"><%= character_sheet.constitutionScore %></p>
+    <h4 class="font-medium leading-none">Strength Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.strengthScore.to_i - 10)/2 + (character_sheet.strengthSavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Intelligencescore:</h4>
-    <p class="leading-none"><%= character_sheet.intelligenceScore %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Wisdomscore:</h4>
-    <p class="leading-none"><%= character_sheet.wisdomScore %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Charismascore:</h4>
-    <p class="leading-none"><%= character_sheet.charismaScore %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Strengthsavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Strength Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.strengthSavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Dexteritysavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Dexterity Score:</h4>
+    <p class="leading-none"><%= character_sheet.dexterityScore %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Dexterity Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.dexterityScore.to_i - 10)/2 %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Dexterity Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.dexterityScore.to_i - 10)/2 + (character_sheet.dexteritySavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Dexterity Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.dexteritySavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Constitutionsavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Constitution Score:</h4>
+    <p class="leading-none"><%= character_sheet.constitutionScore %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Constitution Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.constitutionScore.to_i - 10)/2 %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Constitution Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.constitutionScore.to_i - 10)/2 + (character_sheet.constitutionSavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Constitution Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.constitutionSavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Intelligencesavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Intelligence Score:</h4>
+    <p class="leading-none"><%= character_sheet.intelligenceScore %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Intelligence Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.intelligenceScore.to_i - 10)/2 %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Intelligence Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.intelligenceScore.to_i - 10)/2 + (character_sheet.intelligenceSavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Intelligence Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.intelligenceSavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Wisdomsavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Wisdom Score:</h4>
+    <p class="leading-none"><%= character_sheet.wisdomScore %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Wisdom Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.wisdomScore.to_i - 10)/2 %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Wisdom Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.wisdomScore.to_i - 10)/2 + (character_sheet.wisdomSavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Wisdom Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.wisdomSavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Charismasavingthrowproficiency:</h4>
+    <h4 class="font-medium leading-none">Charisma Score:</h4>
+    <p class="leading-none"><%= character_sheet.charismaScore %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Charisma Modifier:</h4>
+    <p class="leading-none"><%= (character_sheet.charismaScore.to_i - 10)/2 %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Charisma Saving Throw:</h4>
+    <p class="leading-none"><%= (character_sheet.charismaScore.to_i - 10)/2 + (character_sheet.charismaSavingThrowProficiency ? 2+(character_sheet.level.to_i / 4) : 0) %></p>
+  </div>
+  <div class="flex flex-col gap-half">
+    <h4 class="font-medium leading-none">Charisma Saving Throw Proficiency:</h4>
     <p class="leading-none"><%= character_sheet.charismaSavingThrowProficiency %></p>
   </div>
   <div class="flex flex-col gap-half">
