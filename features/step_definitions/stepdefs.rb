@@ -1,5 +1,5 @@
 Given('I am on the homepage') do
-  visit character_sheets_path
+  visit root_path
 end
 
 When('I click on the {string} button') do |button|
@@ -67,7 +67,6 @@ Then('I should be redirected to the homepage') do
 end
 
 Given('I have {int} character sheets') do |int|
-# Given('I have {float} character sheets') do |float|
   int.times do |i|
   CharacterSheet.create(name: "Character #{i}", user: User.first)
   end
@@ -91,55 +90,58 @@ Then('I should see a confirmation message that the character sheet has been succ
 end
 
 When('I enter an invalid dice expression') do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'dice_expression', with: 'invalid_expression'
 end
 
 Then('I should see a syntax error message') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Syntax error in dice expression')
 end
 
 When('I enter a dice expression') do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'dice_expression', with: '2d6+3'
 end
 
 Then('I should see the rolled dice values and the total') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Rolled dice: [2, 5]')
+  expect(page).to have_content('Total: 10')
 end
 
 Then('the total should equal the sum of the rolled dice values and any modifiers') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Total: 10')
 end
 
 When('I enter a dice expression that uses the character\'s stats') do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'dice_expression', with: '1d20+strength'
 end
 
 Then('the total should equal the sum of the rolled dice values, any modifiers and any used stats') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Total: 18')
 end
 
 When('I enter a dice expression that uses advantage') do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'dice_expression', with: '2d20kh1'
 end
 
 Then('the dice rolled with advantage should show two rolled results with higher one in bold') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Rolled dice: [12, 18]')
+  expect(page).to have_css('strong', text: '18')
 end
 
 Then('the total should equal the sum of the rolled dice values with advantage and any modifiers') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Total: 18')
 end
 
 When('I enter a dice expression that uses disadvantage') do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'dice_expression', with: '2d20kl1'
 end
 
 Then('the dice rolled with advantage should show two rolled results with lower one in bold') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Rolled dice: [12, 18]')
+  expect(page).to have_css('strong', text: '12')
 end
 
 Then('the total should equal the sum of the selected rolled dice values with disadvantage and any modifiers') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content('Total: 12')
 end
 
 Given('I have a character sheet') do
