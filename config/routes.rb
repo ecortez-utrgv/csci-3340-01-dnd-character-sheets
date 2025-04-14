@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "character_sheets#index"
   get "users/sign_up", to: "user#new", as: :user_sign_up_page
-  get "users/sign_up", to: "user#create", as: :user_sign_up
+  post "users/sign_up", to: "user#create", as: :user_sign_up
 end
