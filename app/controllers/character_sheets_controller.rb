@@ -12,7 +12,9 @@ class CharacterSheetsController < ApplicationController
 
   # GET /character_sheets/new
   def new
-    @character_sheet = CharacterSheet.new
+    dice = GamesDice::Dice.new('4d6k3')
+    rolls = Array.new(6) { dice.roll.result }
+    @character_sheet = CharacterSheet.new(notes: rolls.join(", "))
   end
 
   # GET /character_sheets/1/edit
