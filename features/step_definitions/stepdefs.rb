@@ -55,7 +55,7 @@ When('I click on {string}') do |button|
 end
 
 Then('I should be registered as a new user') do
-  expect(page).to have_conetent('Welcome, New User!')
+  expect(page).to have_content('Welcome, New User!')
 end
 
 Then('I should be logged in') do
