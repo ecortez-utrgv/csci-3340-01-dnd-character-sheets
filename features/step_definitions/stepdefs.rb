@@ -7,7 +7,7 @@ When('I click on the {string} button') do |button|
 end
 
 Then('I should be redirected to a form to input my character\'s information') do
-  expect(page).to_have current_path(new_character_path)
+  expect(page).to have_current_path(new_character_path)
 end
 
 Then('I should see six randomly generated stats to use') do
@@ -22,7 +22,7 @@ end
 When('I fill out the form') do
   fill_in 'character_sheet_name', with: 'My New Character'
   fill_in 'character_sheet_strength_score', with: 14
-  fill_in 'character_sheet_desterity_score', with: 12
+  fill_in 'character_sheet_dexterity_score', with: 12
   fill_in 'character_sheet_constitution_score', with: 13
   fill_in 'character_sheet_intelligence_score', with: 8
   fill_in 'character_sheet_wisdom_score', with: 15
